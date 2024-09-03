@@ -8,8 +8,10 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <h1>Portafolio de Mapas</h1>
-    <h2>Una colección de mapas creados con diversas técnicas y datos</h2>
+    <div class="header-container">
+        <h1>Portafolio de Mapas</h1>
+        <h2>Una colección de mapas creados con diversas técnicas y datos</h2>
+    </div>
     <div class="dashboard">
         <div class="map-item" data-category="category1">
             <img src="https://github.com/luzarin/Portafolio/blob/3884c5cc61946328a267edbae91d6f7353de96ee/kb2.png" alt="Map 1" onclick="openLightbox(this.src)">
@@ -100,44 +102,7 @@
     <div id="lightbox" class="lightbox" onclick="closeLightbox()">
         <img id="lightboxImage" src="" alt="Fullsize map">
     </div>
-
-    <script>
-        let scale = 1;
-        const ZOOM_SPEED = 0.1;
-        const MAX_SCALE = 10;
-
-        function openLightbox(imgSrc) {
-            const lightbox = document.getElementById('lightbox');
-            const lightboxImage = document.getElementById('lightboxImage');
-            lightboxImage.src = imgSrc;
-            lightbox.style.display = 'flex';
-            scale = 1;
-            lightboxImage.style.transform = `scale(${scale})`;
-
-            lightbox.addEventListener('wheel', zoomImage);
-            lightbox.addEventListener('click', closeLightbox);
-            lightboxImage.addEventListener('click', function(e) {
-                e.stopPropagation();
-            });
-        }
-
-        function closeLightbox() {
-            const lightbox = document.getElementById('lightbox');
-            lightbox.style.display = 'none';
-            lightbox.removeEventListener('wheel', zoomImage);
-        }
-
-        function zoomImage(e) {
-            e.preventDefault();
-            const delta = e.deltaY > 0 ? -1 : 1;
-            
-            if (delta > 0 || (delta < 0 && scale > 1)) {
-                scale += delta * ZOOM_SPEED;
-                scale = Math.min(Math.max(1, scale), MAX_SCALE);
-                document.getElementById('lightboxImage').style.transform = `scale(${scale})`;
-            }
-        }
-    </script>
+    <script src="script.js"></script>
 </body>
 </html>
 
