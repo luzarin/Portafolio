@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Map Portfolio Dashboard</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f0f0f0;
+        }
+        .dashboard {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr); /* Change to 3 columns */
+            gap: 30px;
+            max-width: 1200px; /* Add a max-width to control overall dashboard width */
+            margin: 0 auto; /* Center the dashboard */
+        }
+        .map-item {
+            background-color: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            flex-direction: column;
+            padding-top: 20px; /* Add padding to the top */
+        }
+        .map-item img {
+            width: 100%;
+            height: 400px; /* Slightly reduced height to fit 3 per row */
+            object-fit: contain;
+            background-color: #f8f8f8;
+            cursor: pointer;
+        }
+        .map-info {
+            padding: 10px 15px; /* Reduced padding */
+        }
+        .map-info h3 {
+            margin-top: 2px;
+            margin-bottom: 6px; /* Reduced margin */
+        }
+        .map-info p {
+            margin: 0; /* Remove default paragraph margins */
+        }
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 30px;
+        }
+        .lightbox {
+            display: none;
+            position: fixed;
+            z-index: 999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.8);
+            overflow: auto;
+        }
+        .lightbox img {
+            display: block;
+            margin: auto;
+            max-width: 100%;
+            max-height: 100%;
+            object-fit: contain;
+            transform-origin: center;
+            transition: transform 0.3s ease;
+        }
+        /* Add media query for responsiveness */
+        @media (max-width: 1200px) {
+            .dashboard {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+        @media (max-width: 768px) {
+            .dashboard {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Portafolio de Mapas</h1>
+    <div class="dashboard">
+        <div class="map-item" data-category="category1">
+            <img src="C:/Users/lucas/OneDrive/Desktop/kb2.png" alt="Map 1" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Key Biscaye</h3>
+                <p>Datos: LiDAR USGS</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/SFC_1.png" alt="Map 2" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>San Francisco</h3>
+                <p>Datos: LiDAR USGS</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/Chilesur.png" alt="Map 3" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Chile Sur</h3>
+                <p>Datos: ALOS Palsar</p>
+            </div>
+        </div>
+        <!-- New maps -->
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/_FINAL/ANT_FINAL.png" alt="Map 4" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Antártida</h3>
+                <p>Datos: xxx</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/par2.png" alt="Map 5" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Paris</h3>
+                <p>Datos: xxx</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/mnvvv.png" alt="Map 6" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Sierra Nevada</h3>
+                <p>Datos: xxx</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/berna6.png" alt="Map 7" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Berna</h3>
+                <p>Datos: xxx</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/berna5.png" alt="Map 8" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Berna 2</h3>
+                <p>Datos: xxx</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="C:/Users/lucas/OneDrive/Desktop/sw2.png" alt="Map 9" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Lago en Suiza</h3>
+                <p>Datos: xxx</p> 
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="path/to/map10.png" alt="Map 10" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Grand Canyon</h3>
+                <p>Datos: Aerial Photogrammetry</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="path/to/map11.png" alt="Map 11" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Venice Canals</h3>
+                <p>Datos: High-Resolution Satellite</p>
+            </div>
+        </div>
+        <div class="map-item">
+            <img src="path/to/map12.png" alt="Map 12" onclick="openLightbox(this.src)">
+            <div class="map-info">
+                <h3>Yellowstone National Park</h3>
+                <p>Datos: Multispectral Imaging</p>
+            </div>
+        </div>
+    </div>
+    <div id="lightbox" class="lightbox" onclick="closeLightbox()">
+        <img id="lightboxImage" src="" alt="Fullsize map">
+    </div>
+
+    <script>
+        let scale = 1;
+        const ZOOM_SPEED = 0.1;
+        const MAX_SCALE = 10;
+
+        function openLightbox(imgSrc) {
+            const lightbox = document.getElementById('lightbox');
+            const lightboxImage = document.getElementById('lightboxImage');
+            lightboxImage.src = imgSrc;
+            lightbox.style.display = 'flex';
+            scale = 1;
+            lightboxImage.style.transform = `scale(${scale})`;
+
+            lightbox.addEventListener('wheel', zoomImage);
+            lightbox.addEventListener('click', closeLightbox);
+            lightboxImage.addEventListener('click', function(e) {
+                e.stopPropagation();
+            });
+        }
+
+        function closeLightbox() {
+            const lightbox = document.getElementById('lightbox');
+            lightbox.style.display = 'none';
+            lightbox.removeEventListener('wheel', zoomImage);
+        }
+
+        function zoomImage(e) {
+            e.preventDefault();
+            const delta = e.deltaY > 0 ? -1 : 1;
+            
+            if (delta > 0 || (delta < 0 && scale > 1)) {
+                scale += delta * ZOOM_SPEED;
+                scale = Math.min(Math.max(1, scale), MAX_SCALE);
+                document.getElementById('lightboxImage').style.transform = `scale(${scale})`;
+            }
+        }
+    </script>
+</body>
+</html>
