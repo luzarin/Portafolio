@@ -13,7 +13,6 @@ body {
 }
 
 h1 {
-    text-align: center;
     color: #333;
     margin-bottom: 10px;
     font-family: 'Montserrat', sans-serif;
@@ -21,7 +20,6 @@ h1 {
 }
 
 h2 {
-    text-align: center;
     color: #666;
     margin-bottom: 5px;  /* Reducido para acercar el h3 */
     font-family: 'Montserrat', sans-serif;
