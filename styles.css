@@ -73,11 +73,14 @@ h3 {
 }
 
 .map-info h3 {
+    text-align: left;  /* Alinea a la izquierda */
+    font-weight: 700;  /* Negrita */
     margin-top: 2px;
     margin-bottom: 6px;
 }
 
 .map-info p {
+    text-align: left;  /* Asegura que el párrafo también esté alineado a la izquierda */
     margin: 0;
 }
 
