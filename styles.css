@@ -9,6 +9,7 @@ body {
     background-color: #e6f3ff;  /* Celeste claro */
     padding: 20px;
     margin-bottom: 20px;
+    text-align: center;  /* Centra todo el texto dentro del contenedor */
 }
 
 h1 {
@@ -22,12 +23,19 @@ h1 {
 h2 {
     text-align: center;
     color: #666;
-    margin-bottom: 0;
+    margin-bottom: 5px;  /* Reducido para acercar el h3 */
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.2em;
 }
 
+h3 {
+    color: #888;
+    margin-top: 0;  /* Elimina el margen superior para acercarlo al h2 */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    font-size: 1em;
+}
 
 .dashboard {
     display: grid;
