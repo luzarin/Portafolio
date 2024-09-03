@@ -17,7 +17,7 @@
             height: 100%;
             background-color: rgba(0,0,0,0.8);
             text-align: center;
-            overflow: auto; /* Permite scroll si la imagen es más grande que la pantalla */
+            overflow: auto;
         }
         .lightbox:target {
             display: flex;
@@ -28,7 +28,13 @@
             max-width: 90%;
             max-height: 90%;
             object-fit: contain;
-            cursor: zoom-in; /* Indica que se puede hacer zoom */
+            transition: transform 0.3s ease;
+        }
+        .lightbox:target img {
+            transform: scale(1);
+        }
+        .lightbox:target:active img {
+            transform: scale(2);
         }
         .close {
             position: absolute;
@@ -38,22 +44,13 @@
             font-size: 40px;
             font-weight: bold;
             transition: 0.3s;
-            z-index: 1000; /* Asegura que el botón de cierre esté siempre visible */
+            z-index: 1000;
         }
         .close:hover,
         .close:focus {
             color: #bbb;
             text-decoration: none;
             cursor: pointer;
-        }
-
-        /* Estilos para el zoom */
-        .zoomed {
-            cursor: zoom-out;
-            max-width: none;
-            max-height: none;
-            width: auto;
-            height: auto;
         }
     </style>
 </head>
@@ -225,18 +222,4 @@
         <img src="path/to/map12.png" alt="Yellowstone National Park">
     </div>
 </body>
-<script>
-    document.querySelectorAll('.lightbox img').forEach(img => {
-        img.addEventListener('click', function() {
-            this.classList.toggle('zoomed');
-            if (this.classList.contains('zoomed')) {
-                this.style.width = this.naturalWidth + 'px';
-                this.style.height = this.naturalHeight + 'px';
-            } else {
-                this.style.width = '';
-                this.style.height = '';
-            }
-        });
-    });
-</script>
 </html>
