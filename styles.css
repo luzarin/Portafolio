@@ -1,8 +1,14 @@
 body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 20px;
+    padding: 0;
     background-color: #f0f0f0;
+}
+
+.header-container {
+    background-color: #e6f3ff;  /* Celeste claro */
+    padding: 20px;
+    margin-bottom: 20px;
 }
 
 h1 {
@@ -16,11 +22,12 @@ h1 {
 h2 {
     text-align: center;
     color: #666;
-    margin-bottom: 30px;
+    margin-bottom: 0;
     font-family: 'Montserrat', sans-serif;
     font-weight: 400;
     font-size: 1.2em;
 }
+
 
 .dashboard {
     display: grid;
