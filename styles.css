@@ -30,7 +30,7 @@ h2 {
     color: #666;
     margin-bottom: 5px;  /* Reducido para acercar el h3 */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 700;  /* Cambiado a negrita */
     font-size: 1.2em;
 }
 
@@ -38,7 +38,7 @@ h3 {
     color: #888;
     margin-top: 0;  /* Elimina el margen superior para acercarlo al h2 */
     font-family: 'Montserrat', sans-serif;
-    font-weight: 400;
+    font-weight: 400;  /* Normal */
     font-size: 1em;
 }
 
